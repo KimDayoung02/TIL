@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Size</title>
+
+</head>
+<style>
+    .box {
+        display: inline-block;
+        background-color: antiquewhite;
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <div class="box">win</div>
+    <script src="windowSize.js" defer></script>
+    <!-- <script>
+
+        function updateTag() {
+            document.querySelector(".box").innerText = `
+window.screen : ${window.screen.width}, ${window.screen.height}<br/>
+window.outer : ${window.outerWidth}, ${window.outerHeight}<br/>
+window.inner : ${window.innerWidth}, ${window.innerHeight}<br/>
+documentElement.clientWidth : ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}<br/>
+`;
+
+            console.log(window.outerWidth);
+        }
+
+        window.addEventListener("resize", () => {
+            updateTag();
+        });
+        updateTag();
+
+    </script> -->
+</body>
+
+
+
+</html>
