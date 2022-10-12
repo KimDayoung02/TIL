@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="windowScrolling.js" defer></script>
+</head>
+<style>
+    div#flex {
+        /* width: 100%;
+        display: flex;
+        flex-direction: row; */
+        top: 20px;
+        right: 20px;
+
+        position: fixed;
+        /* flex안쓰고도 position:fixed랑 top,right만 설정해줘도 됨 
+        어쩐지...*/
+    }
+
+    button {
+        margin-right: 4px;
+    }
+
+    div.normal {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(49, 155, 171);
+        margin-top: 5px;
+    }
+</style>
+
+<body>
+    <div id="flex">
+        <button id="scroll_by_100">scroll by 100px(y)</button>
+        <button id="scroll_to_100">scroll to 100px(y) </button>
+        <button id="scroll_special">scroll into special</button>
+    </div>
+    <div class="normal"></div>
+    <div class="normal"></div>
+    <div class="normal"></div>
+    <div class="normal"></div>
+    <div class="normal"></div>
+    <div class="normal"></div>
+    <div class="normal"></div>
+    <div class="normal"></div>
+    <div class="normal"></div>
+    <div class="normal" id="special" style="background-color: rgb(55, 105, 176);"></div>
+    <div class="normal"></div>
+    <div class="normal"></div>
+    <div class="normal"></div>
+    <div class="normal"></div>
+    <div class="normal"></div>
+    <div class="normal"></div>
+    <div class="normal"></div>
+    <div class="normal"></div>
+</body>
+
+</html>
