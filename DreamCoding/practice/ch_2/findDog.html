@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: tan;
+    }
+
+    .divButton {
+        width: 100%;
+        text-align: center;
+        margin: auto;
+        position: fixed;
+    }
+
+    button {
+        font-size: 20px;
+        background-color: blanchedalmond;
+        border: 3px solid rgb(188, 167, 136);
+        width: fit-content;
+        height: fit-content;
+        margin: auto;
+        cursor: pointer;
+
+    }
+
+
+    .divImg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50px;
+    }
+
+    img {
+        text-align: center;
+        width: 10rem;
+        height: 10rem;
+    }
+
+    /* css를 어떻게 작성해야 중앙정렬이 되나 이것저것 하면서 많이 고뇌했다...
+    하지만 display : block, margin : auto, text-align : center만 적절히 배치하면
+    비교적 간단하게 배치할 수 있었다 ㅠㅠ*/
+</style>
+
+<body>
+    <div class="divButton">
+        <button>🐶 FIND CUTE DOG! 🐶</button>
+    </div>
+    <div class="divImg">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img id="dog" src="dog.png" alt="강아지그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+        <img src="cat.png" alt="고양이그림">
+    </div>
+
+    <script>
+        let dog = document.getElementById('dog');
+        let button = document.getElementsByTagName('button')[0];
+        button.addEventListener('click', () => {
+            dog.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            })
+        })
+
+    </script>
+</body>
+
+</html>
