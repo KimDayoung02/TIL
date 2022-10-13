@@ -31,5 +31,8 @@ scroll_special.addEventListener("click", () => {
   //     top: special_position.top,
   //     behavior: "smooth",
   //   });
+  // -- 위는 내가 한 방법 --
+
   special.scrollIntoView({ behavior: "smooth" });
+  //이렇게 해당 요소로 바로 이동하게 해주는 메소드가 따로 있었음
 });
