@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+/* html {
+    cursor: url(target.png) 50 50, auto;
+  } */
+
+/* 위처럼 html에 직접 커서 이미지를 변경하니까 다른 line과 tag들이 따로 움직임..
+  커서가 더 빨리 움직이고 그 뒤를 line과 tag들이 따라가는 느낌 
+  이런 방법으로 커서를 바꿀 수도 있지만 다른 효과와 같이 사용하려면 다른 방법이 좋을 듯*/
+
+.line {
+  background-color: rgb(22, 101, 19);
+  position: absolute;
+}
+
+.height {
+  width: 100%;
+  height: 2px;
+  transform: translateY(50%);
+}
+
+.width {
+  width: 2px;
+  height: 100%;
+  transform: translateX(50%);
+}
+
+img {
+  translate: -48.5px -50px;
+  z-index: 1;
+  position: absolute;
+  /* 그림이 제일 상단에 오도록 함 */
+}
+
+.tag {
+  position: absolute;
+  translate: 30px 30px;
+}
+
+/* top과 left가 아닌 transform, translate로 변화하여
+ layout층이 아닌 composite층에서 변화하게 함 */

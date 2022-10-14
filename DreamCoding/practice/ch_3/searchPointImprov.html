@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>챕터 2의 실습의 성능을 개선</title>
+    <script src="searchPointImprov.js" defer></script>
+    <link rel="stylesheet" href="searchPointImprov.css">
+</head>
+<!-- 챕터 2에서 top과 left로 좌표를 이동하는 방식이
+레이아웃을 계속 새로 업데이트 하는 방식이기 때문에 성능이 좋지 않음
+css trigger사이트를 참고하면 transform의 방식이 composite의 부분만
+업데이트 하는 방식임을 알 수 있으므로 성능 개선이 가능할 것 -->
+
+<body>
+    <img class="cursor" src="../ch_2/target.png"></img>
+    <div class="line width"></div>
+    <div class="line height"></div>
+    <p class="tag"></p>
+</body>
+
+</html>
