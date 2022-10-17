@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  height: max-content;
+  text-align: center;
+  background: linear-gradient(rgb(218, 173, 230), rgb(231, 220, 163));
+}
+
+.title {
+  padding: 10px;
+  width: 50%;
+  margin: 30px auto 15px auto;
+  background-color: rgb(238, 218, 243);
+  font-size: 50px;
+  font-family: "Jua", sans-serif;
+  border-radius: 10px;
+}
+.memoBox {
+  position: relative;
+  display: block;
+}
+
+input {
+  border: 4px solid rgb(169, 133, 187);
+  border-radius: 10px;
+  height: 3rem;
+  width: 20rem;
+  margin: auto;
+  font-size: 20px;
+  padding: 5px;
+  font-family: "Jua", sans-serif;
+}
+button {
+  height: 3rem;
+  width: 7rem;
+  background-color: rgb(216, 193, 221);
+  border: 4px solid rgb(200, 169, 215);
+  border-radius: 10px;
+  margin-left: 5px;
+  font-size: 20px;
+  font-family: "Jua", sans-serif;
+  cursor: pointer;
+}
+button:active {
+  background-color: rgb(201, 165, 212);
+}
+.memoAdd {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
