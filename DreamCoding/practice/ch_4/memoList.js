@@ -29,6 +29,7 @@ memoAddButtom.addEventListener("click", () => {
 
     checkMark.addEventListener("click", () => {
       checkMark.parentElement.style.textDecorationLine = "line-through";
+      checkMark.parentElement.style.color = "rgba(128, 128, 128, 0.57)";
     });
 
     removeMark.addEventListener("click", () => {
