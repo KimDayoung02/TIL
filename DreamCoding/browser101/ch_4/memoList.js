@@ -2,6 +2,7 @@ let memoText = document.querySelector(".memoAddText");
 let memoAddButtom = document.querySelector(".memoAddButton");
 let memoList = document.querySelector(".memoList");
 let html = document.getElementsByTagName("html")[0];
+let form = document.querySelector("form");
 
 window.addEventListener("resize", () => {
   html.style.width = window.outerWidth;
@@ -86,12 +87,28 @@ const onAdd = () => {
   // });
 };
 
-memoAddButtom.addEventListener("click", () => {
-  onAdd();
-});
+// memoAddButtom.addEventListener("click", () => {
+//   onAdd();
+// });
 
-memoText.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    onAdd();
-  }
+// //keypress는 MDN에서 Deprecated표시가 되어있어 keydown으로 대체
+// memoText.addEventListener("keydown", (e) => {
+//   if (e.isComposing) {
+//     /*글자가 만들어지는 중간에 발생하는 이벤트를 무시하는 것
+//     (한글은 여러키를 사용해서 글자를 완성하는 언어라
+//       중간에 이벤트가 벌어질 수도 있다! isComposing을 사용하거나 keyup을 사용해보자)*/
+//     return;
+//   }
+//   if (e.key === "Enter") {
+//     onAdd();
+//   }
+// });
+
+//사실 위처럼 click, keydown이 따로 없어도 form태그로 이루어져있으면 따로 없어도 됨
+//해보자
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  //form으로 submit할때는 새로고침이 발생하는데 이걸 막아주는 역할
+  onAdd();
 });
