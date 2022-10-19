@@ -6,6 +6,7 @@ html {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  /* 이때 overflow-y:auto 이렇게 하면 요소안에 아이템이 늘어났을 떄 알아서 스크롤바가 생김 */
 }
 body {
   background-repeat: no-repeat;
@@ -23,6 +24,7 @@ body {
   font-size: 40px;
   font-family: "Jua", sans-serif;
   border-radius: 10px;
+  /* 만약 특정 모서리만 둥글게 하고싶으면 숫자를 4개로 4방향 각각 지정해줘도 됨 */
 }
 .memoList {
   position: absolute;

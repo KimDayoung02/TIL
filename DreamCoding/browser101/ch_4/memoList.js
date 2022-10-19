@@ -22,7 +22,7 @@ memoAddButtom.addEventListener("click", () => {
     removeMark.innerHTML = ` X <br>`;
     removeMark.style.fontSize = "25px";
     removeMark.style.cursor = "pointer";
-    removeMark.style.color = "red";
+    removeMark.style.color = "firebrick";
 
     let memoListText = document.createElement("h2");
     memoListText.innerHTML = memoText.value;
@@ -33,6 +33,20 @@ memoAddButtom.addEventListener("click", () => {
     memoListText.appendChild(removeMark);
 
     memoText.value = "";
+    checkMark.onmouseover = function () {
+      checkMark.style.color = "rgb(125, 209, 125)";
+      checkMark.style.transition = "all 0.1s ease-in";
+    };
+    checkMark.onmouseout = function () {
+      checkMark.style.color = "green";
+    };
+    removeMark.onmouseover = function () {
+      removeMark.style.color = "red";
+      removeMark.style.transition = "all 0.1s ease-in";
+    };
+    removeMark.onmouseout = function () {
+      removeMark.style.color = "firebrick";
+    };
 
     checkMark.addEventListener("click", () => {
       checkMark.parentElement.style.textDecorationLine = "line-through";
