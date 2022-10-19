@@ -1,6 +1,12 @@
 let memoText = document.querySelector(".memoAddText");
 let memoAddButtom = document.querySelector(".memoAddButton");
 let memoList = document.querySelector(".memoList");
+let html = document.getElementsByTagName("html")[0];
+
+window.addEventListener("resize", () => {
+  html.style.width = window.outerWidth;
+  html.style.height = window.outerHeight;
+});
 
 memoAddButtom.addEventListener("click", () => {
   if (!memoText.value) {
@@ -20,6 +26,7 @@ memoAddButtom.addEventListener("click", () => {
 
     let memoListText = document.createElement("h2");
     memoListText.innerHTML = memoText.value;
+    //아무래도 리스트니까 ul, li태그를 쓰는 것도 좋았을 듯
 
     memoList.appendChild(memoListText);
     memoListText.appendChild(checkMark);
