@@ -19,12 +19,14 @@ const onAdd = () => {
   // createItem
   let checkMark = document.createElement("span");
   checkMark.innerHTML = ` ✔ `;
+  checkMark.setAttribute("class", "check");
   checkMark.style.fontSize = "25px";
   checkMark.style.cursor = "pointer";
   checkMark.style.color = "green";
 
   let removeMark = document.createElement("span");
   removeMark.innerHTML = ` X <br>`;
+  removeMark.setAttribute("class", "remove");
   removeMark.style.fontSize = "25px";
   removeMark.style.cursor = "pointer";
   removeMark.style.color = "firebrick";
@@ -61,16 +63,27 @@ const onAdd = () => {
     removeMark.style.color = "firebrick";
   };
 
-  //onCheckedItem
-  checkMark.addEventListener("click", () => {
-    checkMark.parentElement.style.textDecorationLine = "line-through";
-    checkMark.parentElement.style.color = "rgba(128, 128, 128, 0.57)";
+  memoListText.addEventListener("click", (e) => {
+    if (e.target.className == "check") {
+      checkMark.parentElement.style.textDecorationLine = "line-through";
+      checkMark.parentElement.style.color = "rgba(128, 128, 128, 0.57)";
+    } else if (e.target.className == "remove") {
+      removeMark.parentElement.remove();
+    }
   });
+  //위는 이벤트위임을 이용해서 이벤트를 부모 하나에만 달아 자식들에게 적용하는 방법
+  //아래는 수정 이전
 
-  //onRemoveItem
-  removeMark.addEventListener("click", () => {
-    removeMark.parentElement.remove();
-  });
+  // //onCheckedItem
+  // checkMark.addEventListener("click", () => {
+  // checkMark.parentElement.style.textDecorationLine = "line-through";
+  // checkMark.parentElement.style.color = "rgba(128, 128, 128, 0.57)";
+  // });
+
+  // //onRemoveItem
+  // removeMark.addEventListener("click", () => {
+  // removeMark.parentElement.remove();
+  // });
 };
 
 memoAddButtom.addEventListener("click", () => {

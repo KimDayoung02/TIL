@@ -85,6 +85,9 @@ button {
   font-family: "Jua", sans-serif;
   cursor: pointer;
 }
+button:hover {
+  background-color: rgb(226, 202, 233);
+}
 button:active {
   background-color: rgb(201, 165, 212);
 }
