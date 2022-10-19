@@ -44,6 +44,17 @@ body {
   width: 400px;
   overflow-y: auto;
 }
+
+.memoList::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgb(201, 161, 210);
+  border-radius: 5px;
+}
+.memoList::-webkit-scrollbar-thumb {
+  background-color: rgb(140, 107, 147);
+  border-radius: 5px;
+}
+
 h2 {
   font-family: "Jua", sans-serif;
   font-weight: normal;
