@@ -11,6 +11,15 @@ body {
   text-align: center;
   overflow: hidden;
 }
+.explain {
+  margin: 50px auto;
+  padding: 20px;
+  font-size: 30px;
+  font-family: "Gamja Flower", cursive;
+  background-color: rgba(27, 64, 119, 0.366);
+  border-radius: 10px;
+  width: 70vw;
+}
 #gameInfoZone {
   text-align: center;
   margin: auto;
