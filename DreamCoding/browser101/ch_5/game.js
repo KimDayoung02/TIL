@@ -11,20 +11,26 @@ let startBtn = document.querySelector(".startBtn");
 // for (let i = 0; i < hornet.length; i++) {
 //   hornet[i].style.top = "600px";
 // }
+let timer = document.querySelector(".timer");
+let butterflyCount = document.querySelector(".butterflyCount");
+
+let btfCount = 10;
+butterflyCount.innerHTML = `${btfCount}`;
 
 function createitems(num) {
   for (let i = 0; i < num; i++) {
+    let hornet = document.createElement("div");
+    if (i % 3 == 0) {
+      hornet.setAttribute("class", "hornet");
+      hornet.innerHTML = `
+    <img src="gameImg/Hornet.png" alt="말벌그림">`;
+      gameZone.appendChild(hornet);
+    }
     let butterfly = document.createElement("div");
     butterfly.setAttribute("class", "butterfly");
     butterfly.innerHTML = `
     <img src="gameImg/ButterFly.png" alt="나비그림">`;
     gameZone.appendChild(butterfly);
-
-    let hornet = document.createElement("div");
-    hornet.setAttribute("class", "hornet");
-    hornet.innerHTML = `
-    <img src="gameImg/Hornet.png" alt="말벌그림">`;
-    gameZone.appendChild(hornet);
     itemsRandomPlacement(butterfly, hornet);
   }
 }
@@ -57,9 +63,28 @@ startBtn.addEventListener("click", () => {
   if (isExplain) {
     isExplain.remove();
   }
-  createitems(10);
+  createitems(btfCount);
   startBtn.innerHTML = `<i class="fa-sharp fa-solid fa-stop"></i>`;
-  startBtn.addEventListener("change", (e) => {
-    console.log("play!->stop!");
-  });
+  timeStart();
+
+  let butterfly = document.querySelectorAll(`.butterfly`);
+  let hornet = document.querySelectorAll(".hornet");
+  // catchItem(butterfly, hornet);
 });
+
+function timeStart() {
+  let time = 0;
+  let min = "";
+  let sec = "";
+
+  setInterval(() => {
+    min = parseInt(time / 60);
+
+    sec = time % 60;
+    timer.innerHTML = `${min < 10 ? `0${min}` : min} : ${
+      sec < 10 ? `0${sec}` : sec
+    }`;
+
+    time++;
+  }, 10);
+}
