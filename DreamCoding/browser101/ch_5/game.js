@@ -14,8 +14,21 @@ let startBtn = document.querySelector(".startBtn");
 let timer = document.querySelector(".timer");
 let butterflyCount = document.querySelector(".butterflyCount");
 
-let btfCount = 15;
+const fixedBtfCount = 15;
+//나비 개수 조정
+let btfCount = fixedBtfCount;
 butterflyCount.innerHTML = `${btfCount}`;
+let startAndStop;
+//타이머 함수 저장
+
+let bgm = new Audio("gameSound/bgm.mp3");
+bgm.loop = true;
+let hornetSound = new Audio("gameSound/badPull.mp3");
+let butterflySound = new Audio("gameSound/goodPull.mp3");
+let gameWinSound = new Audio("gameSound/gameWin.mp3");
+let alertSound = new Audio("gameSound/alert.wav");
+
+//bgm갖고오기
 
 function createitems(num) {
   for (let i = 0; i < num; i++) {
@@ -54,27 +67,13 @@ function itemsRandomPlacement(item) {
   item.style.left = `${getRandomCoordinate(gameZoneMinX, gameZoneMaxX)}px`;
 }
 
-startBtn.addEventListener("click", () => {
-  let isExplain = document.querySelector(".explain");
-  if (isExplain) {
-    isExplain.remove();
-  }
-  createitems(btfCount);
-  startBtn.innerHTML = `<i class="fa-sharp fa-solid fa-stop"></i>`;
-  timeStart();
-
-  let butterfly = document.querySelectorAll(`.butterfly`);
-  let hornet = document.querySelectorAll(".hornet");
-  catchItem(butterfly, hornet);
-});
-
 function timeStart() {
   let time = 0;
   let min = "";
   let sec = "";
   let mmsec = "";
 
-  setInterval(() => {
+  startAndStop = setInterval(() => {
     mmsec = time % 10;
     sec = parseInt((time / 10) % 60);
 
@@ -85,10 +84,13 @@ function timeStart() {
 
     time++;
   }, 100);
+  console.log(startAndStop);
 }
+
 function catchItem(butterfly, hornet) {
   butterfly.forEach((btf) => {
     btf.addEventListener("click", () => {
+      butterflySound.play();
       btf.remove();
       btfCount--;
       butterflyCount.innerHTML = `${btfCount}`;
@@ -96,7 +98,73 @@ function catchItem(butterfly, hornet) {
   });
   hornet.forEach((hor) => {
     hor.addEventListener("click", () => {
-      console.log("Game Over!");
+      hornetSound.play();
+      gameOver();
     });
   });
 }
+
+function gamePlay() {
+  alertSound.play();
+  bgm.load();
+  bgm.play();
+  createitems(fixedBtfCount);
+  btfCount = fixedBtfCount;
+  butterflyCount.innerHTML = `${fixedBtfCount}`;
+  startBtn.innerHTML = `<p class="fa-sharp fa-solid fa-stop"></p>`;
+  startBtn.setAttribute("id", "stop");
+
+  timeStart();
+
+  let butterfly = document.querySelectorAll(`.butterfly`);
+  let hornet = document.querySelectorAll(".hornet");
+  catchItem(butterfly, hornet);
+}
+
+function gameReset() {
+  bgm.pause();
+  clearInterval(startAndStop);
+  gameZone.innerHTML = `
+  <div class="explain">
+  <h2>다시 하시겠습니까?<br><br></h2>
+  <button id="replay" class="startBtn">
+  <i class="fa-sharp fa-solid fa-reply"></i>
+  </button>        
+  </div>`;
+  let replayBtn = document.querySelector("#replay");
+  replayBtn.addEventListener("click", (e) => {
+    gameZone.innerHTML = ``;
+    gamePlay();
+  });
+}
+
+function gameOver() {
+  bgm.pause();
+  clearInterval(startAndStop);
+  gameZone.innerHTML = `
+  <div class="explain">
+  <h2>이런! 말벌을 잡았습니다! <i class="fa-sharp fa-solid fa-face-sad-tear"></i> <br><br></h2>
+  <button id="replay" class="startBtn">
+  <i class="fa-sharp fa-solid fa-reply"></i>
+  </button>        
+  </div>`;
+  let replayBtn = document.querySelector("#replay");
+  replayBtn.addEventListener("click", (e) => {
+    gameZone.innerHTML = ``;
+    gamePlay();
+  });
+}
+
+startBtn.addEventListener("click", (e) => {
+  let clickId = e.currentTarget.id;
+  let isExplain = document.querySelector(".explain");
+  if (isExplain) {
+    isExplain.remove();
+  }
+  console.log(clickId);
+  if (clickId == "stop" || clickId == false) {
+    gameReset();
+    return;
+  }
+  gamePlay();
+});
