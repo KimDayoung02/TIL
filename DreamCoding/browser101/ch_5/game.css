@@ -6,7 +6,7 @@
 body {
   height: 100vh;
   width: 100vw;
-  background-image: url("gameImg/Background.png");
+  background-image: url("gameImg/background.png");
   background-size: cover;
   text-align: center;
   overflow: hidden;
