@@ -120,7 +120,7 @@ function gameWin() {
   clearInterval(startAndStop);
   gameZone.innerHTML = `
   <div class="explain">
-  <h2><i class="fa-sharp fa-solid fa-party-horn"></i>와! 나비를 다 잡았습니다!<i class="fa-sharp fa-solid fa-party-horn"></i><br><br></h2>
+  <h2>와! 나비를 다 잡았습니다! <i class="fa-sharp fa-solid fa-thumbs-up"></i><br><br></h2>
   <button id="replay" class="startBtn">
   <i class="fa-sharp fa-solid fa-reply fa-beat"></i>
   </button>        
