@@ -127,13 +127,13 @@ function gameWin() {
   </div>`;
   let explain = document.querySelector(".explain");
   let score = document.createElement("span");
-  if (time < 90) {
+  if (time < 80) {
     score.innerHTML = `점수는 <i style="color:#f12d2d"class="fa-sharp fa-solid fa-a"></i>입니다!`;
   } else if (time < 120) {
     score.innerHTML = `점수는 <i style="color:#f69526"class="fa-sharp fa-solid fa-b"></i>입니다!`;
-  } else if (time < 180) {
+  } else if (time < 160) {
     score.innerHTML = `점수는 <i style="color:#f6e926"class="fa-sharp fa-solid fa-c"></i>입니다!`;
-  } else if (time < 210) {
+  } else if (time < 200) {
     score.innerHTML = `점수는 <i style="color:#71f626"class="fa-sharp fa-solid fa-d"></i>입니다!`;
   } else {
     score.innerHTML = `점수는 <i style="color:#95ddff"class="fa-sharp fa-solid fa-f"></i>입니다!`;
