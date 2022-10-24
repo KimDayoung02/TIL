@@ -18,8 +18,12 @@ const fixedBtfCount = 15;
 //나비 개수 조정
 let btfCount = fixedBtfCount;
 butterflyCount.innerHTML = `${btfCount}`;
+
 let startAndStop;
 //타이머 함수 저장
+
+let time;
+//시간으로 점수를 달리하기 위한 변수
 
 let bgm = new Audio("gameSound/bgm.mp3");
 bgm.loop = true;
@@ -27,8 +31,10 @@ let hornetSound = new Audio("gameSound/badPull.mp3");
 let butterflySound = new Audio("gameSound/goodPull.mp3");
 let gameWinSound = new Audio("gameSound/gameWin.mp3");
 let alertSound = new Audio("gameSound/alert.wav");
-
 //bgm갖고오기
+
+const butterflySoundArr = [];
+butterflySoundArr;
 
 function createitems(num) {
   for (let i = 0; i < num; i++) {
@@ -68,7 +74,7 @@ function itemsRandomPlacement(item) {
 }
 
 function timeStart() {
-  let time = 0;
+  time = 0;
   let min = "";
   let sec = "";
   let mmsec = "";
@@ -84,7 +90,6 @@ function timeStart() {
 
     time++;
   }, 100);
-  console.log(startAndStop);
 }
 
 function catchItem(butterfly, hornet) {
@@ -94,6 +99,11 @@ function catchItem(butterfly, hornet) {
       btf.remove();
       btfCount--;
       butterflyCount.innerHTML = `${btfCount}`;
+
+      console.log(time);
+      if (btfCount == 0) {
+        gameWin();
+      }
     });
   });
   hornet.forEach((hor) => {
@@ -103,11 +113,46 @@ function catchItem(butterfly, hornet) {
     });
   });
 }
+function gameWin() {
+  bgm.pause();
+  gameWinSound.play();
+
+  clearInterval(startAndStop);
+  gameZone.innerHTML = `
+  <div class="explain">
+  <h2><i class="fa-sharp fa-solid fa-party-horn"></i>와! 나비를 다 잡았습니다!<i class="fa-sharp fa-solid fa-party-horn"></i><br><br></h2>
+  <button id="replay" class="startBtn">
+  <i class="fa-sharp fa-solid fa-reply fa-beat"></i>
+  </button>        
+  </div>`;
+  let explain = document.querySelector(".explain");
+  let score = document.createElement("span");
+  if (time < 90) {
+    score.innerHTML = `점수는 <i style="color:#f12d2d"class="fa-sharp fa-solid fa-a"></i>입니다!`;
+  } else if (time < 120) {
+    score.innerHTML = `점수는 <i style="color:#f69526"class="fa-sharp fa-solid fa-b"></i>입니다!`;
+  } else if (time < 180) {
+    score.innerHTML = `점수는 <i style="color:#f6e926"class="fa-sharp fa-solid fa-c"></i>입니다!`;
+  } else if (time < 210) {
+    score.innerHTML = `점수는 <i style="color:#71f626"class="fa-sharp fa-solid fa-d"></i>입니다!`;
+  } else {
+    score.innerHTML = `점수는 <i style="color:#95ddff"class="fa-sharp fa-solid fa-f"></i>입니다!`;
+  }
+  explain.appendChild(score);
+
+  let replayBtn = document.querySelector("#replay");
+  replayBtn.addEventListener("click", (e) => {
+    alertSound.play();
+    gameZone.innerHTML = ``;
+    gamePlay();
+  });
+}
 
 function gamePlay() {
   alertSound.play();
   bgm.load();
   bgm.play();
+
   createitems(fixedBtfCount);
   btfCount = fixedBtfCount;
   butterflyCount.innerHTML = `${fixedBtfCount}`;
@@ -128,11 +173,12 @@ function gameReset() {
   <div class="explain">
   <h2>다시 하시겠습니까?<br><br></h2>
   <button id="replay" class="startBtn">
-  <i class="fa-sharp fa-solid fa-reply"></i>
+  <i class="fa-sharp fa-solid fa-reply fa-beat"></i>
   </button>        
   </div>`;
   let replayBtn = document.querySelector("#replay");
   replayBtn.addEventListener("click", (e) => {
+    alertSound.play();
     gameZone.innerHTML = ``;
     gamePlay();
   });
@@ -145,11 +191,12 @@ function gameOver() {
   <div class="explain">
   <h2>이런! 말벌을 잡았습니다! <i class="fa-sharp fa-solid fa-face-sad-tear"></i> <br><br></h2>
   <button id="replay" class="startBtn">
-  <i class="fa-sharp fa-solid fa-reply"></i>
+  <i class="fa-sharp fa-solid fa-reply fa-beat"></i>
   </button>        
   </div>`;
   let replayBtn = document.querySelector("#replay");
   replayBtn.addEventListener("click", (e) => {
+    alertSound.play();
     gameZone.innerHTML = ``;
     gamePlay();
   });
