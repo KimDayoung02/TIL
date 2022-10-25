@@ -1,11 +1,11 @@
 ## 드림코딩 엘리 브라우저 101 강의 실습
 
 <br><br>
-스스로 실습을 해본 후 제공해주는 솔루션과 비교해서 부족한 점은 주석 등으로 메모!
-<br><br>
+#### 스스로 실습을 끝까지 해본 후 제공해주는 솔루션과 비교해서 새로 알게된 점은 주석 등으로 메모하였음!
 실습에서 사용한 **이미지는 모두 직접** 그려서 사용했음
 <br><br>
-
+### [ch_4. ToDo 리스트 페이지 바로가기](https://kimdayoung02.github.io/TIL/DreamCoding/browser101/ch_4/memoList)<br>
+### [ch_5. 나비잡기 게임 페이지 바로가기](https://kimdayoung02.github.io/TIL/DreamCoding/browser101/ch_5/game)<br>
 ---
 
 <br><br>
