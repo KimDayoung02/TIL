@@ -1,5 +1,5 @@
 - ### ch_2 : window관련 실전 실습<br><br>
-
+### [좌표찾아 007 실습 바로가기](https://kimdayoung02.github.io/TIL/DreamCoding/browser101/ch_2/searchPoint)
 #### 1. 좌표찾아 007 (searchPoint.html, js, css / target.png)<br>
 
 이왕하는 실습인데 제공하는 그림으로 심심하게 하는 것보다 내가 직접 그려서 적용해보면 좀 더 재밌게 할 수 있지 않을까 싶어 여기 실습부터 내가 그림을 직접 그리기 시작했다. 그림 그리는 데에 시간을 쓰는게 좀 비효율적이라고 생각할 수는 있으나 그 덕에 좀 더 재밌게 했으니 만족한다. 나중에라도 쓰일 수도 있지 않은가!<br>
