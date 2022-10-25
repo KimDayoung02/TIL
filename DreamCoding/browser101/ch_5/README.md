@@ -1,4 +1,5 @@
 - ### ch_5 : 게임 만들기<br><br>
+### [나비잡기 게임 바로가기](https://kimdayoung02.github.io/TIL/DreamCoding/browser101/ch_5/game)
 * * *
 ### 나비 잡기 게임! (game.html, js, css / gameImg, gameSound)<br>
 *gameSound의 bgm은 기증창작물을 사용하였음   <br><br>
