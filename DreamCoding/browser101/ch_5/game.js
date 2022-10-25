@@ -103,6 +103,7 @@ function catchItem(butterfly, hornet) {
   butterfly.forEach((btf) => {
     btf.addEventListener("click", () => {
       butterflySound.play();
+      butterflySound.currentTime = 0;
       btf.remove();
       btfCount--;
       butterflyCount.innerHTML = `${btfCount}`;
