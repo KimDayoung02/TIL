@@ -33,9 +33,7 @@ let gameWinSound = new Audio("gameSound/gameWin.mp3");
 let alertSound = new Audio("gameSound/alert.wav");
 //bgm갖고오기
 
-const butterflySoundArr = [];
-butterflySoundArr;
-
+//위의 fixedBtfCount 수만큼 나비 생성, 말벌은 나비의 절반만 생성하기위한 함수
 function createitems(num) {
   for (let i = 0; i < num; i++) {
     if (i % 2 == 0) {
@@ -44,6 +42,8 @@ function createitems(num) {
       hornet.innerHTML = `
     <img src="gameImg/Hornet.png" alt="말벌그림">`;
       gameZone.appendChild(hornet);
+
+      //랜덤위치 배치
       itemsRandomPlacement(hornet);
     }
     let butterfly = document.createElement("div");
@@ -51,10 +51,13 @@ function createitems(num) {
     butterfly.innerHTML = `
     <img src="gameImg/ButterFly.png" alt="나비그림">`;
     gameZone.appendChild(butterfly);
+
+    //랜덤위치 배치
     itemsRandomPlacement(butterfly);
   }
 }
 
+//gameZone div의 크기만큼의 최대최소 값을 가지는 랜덤좌표를 생성하기 위한 함수
 function getRandomCoordinate(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -62,6 +65,7 @@ function getRandomCoordinate(min, max) {
   //최댓값은 제외, 최솟값은 포함됨
 }
 
+//생성한 나비, 말벌 아이템들을 gameZone div안에 랜덤으로 배치하기 위한 함수
 function itemsRandomPlacement(item) {
   let coordinate = gameZone.getBoundingClientRect();
   let gameZoneMaxX = coordinate.right - 80;
@@ -73,12 +77,14 @@ function itemsRandomPlacement(item) {
   item.style.left = `${getRandomCoordinate(gameZoneMinX, gameZoneMaxX)}px`;
 }
 
+//게임이 시작될 때 타이머를 시작하기 위한 함수
 function timeStart() {
   time = 0;
   let min = "";
   let sec = "";
   let mmsec = "";
 
+  //나비 개수를 늘리면 플레이타임이 늘어날 수 있으니 분 단위까지 늘려보았음
   startAndStop = setInterval(() => {
     mmsec = time % 10;
     sec = parseInt((time / 10) % 60);
@@ -92,6 +98,7 @@ function timeStart() {
   }, 100);
 }
 
+//사용자가 나비, 말벌 아이템을 클릭했을 때의 동작을 위한 함수
 function catchItem(butterfly, hornet) {
   butterfly.forEach((btf) => {
     btf.addEventListener("click", () => {
@@ -106,6 +113,7 @@ function catchItem(butterfly, hornet) {
       }
     });
   });
+
   hornet.forEach((hor) => {
     hor.addEventListener("click", () => {
       hornetSound.play();
@@ -113,6 +121,8 @@ function catchItem(butterfly, hornet) {
     });
   });
 }
+
+//사용자가 나비를 모두 클릭하고 게임에서 이겼을 떄의 동작을 위한 함수
 function gameWin() {
   bgm.pause();
   gameWinSound.play();
@@ -125,6 +135,8 @@ function gameWin() {
   <i class="fa-sharp fa-solid fa-reply fa-beat"></i>
   </button>        
   </div>`;
+
+  //모두 잡는 데에 걸린 시간 별로 점수를 매기기 위함
   let explain = document.querySelector(".explain");
   let score = document.createElement("span");
   if (time < 80) {
@@ -148,6 +160,7 @@ function gameWin() {
   });
 }
 
+//게임시작, 다시시작 버튼을 눌렀을 때 게임이 동작하기 위한 함수(createitems, timeStart, catchItem 함수가 모두 사용됨)
 function gamePlay() {
   alertSound.play();
   bgm.load();
@@ -166,6 +179,7 @@ function gamePlay() {
   catchItem(butterfly, hornet);
 }
 
+//게임 정지버튼을 눌렀을 때
 function gameReset() {
   bgm.pause();
   clearInterval(startAndStop);
@@ -184,6 +198,7 @@ function gameReset() {
   });
 }
 
+//말벌을 잡아 게임오버 했을 때
 function gameOver() {
   bgm.pause();
   clearInterval(startAndStop);
@@ -202,6 +217,7 @@ function gameOver() {
   });
 }
 
+//맨 처음 start를 누를 때의 동작
 startBtn.addEventListener("click", (e) => {
   let clickId = e.currentTarget.id;
   let isExplain = document.querySelector(".explain");

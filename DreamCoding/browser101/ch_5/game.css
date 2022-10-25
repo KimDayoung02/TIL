@@ -79,6 +79,7 @@ body {
 .hornet {
   position: absolute;
   z-index: 1;
+  /* 말벌 아이템이 나비의 앞쪽에 오게 함(난이도를 높이기 위함) */
 }
 
 .butterfly:hover,
