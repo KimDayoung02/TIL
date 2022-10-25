@@ -1,5 +1,7 @@
 
 - ### ch_4 : 내멋대로 ToDo리스트 만들기!<br><br>
+
+[내가 만든 ToDo 리스트 바로가기](https://kimdayoung02.github.io/TIL/DreamCoding/browser101/ch_4/memoList)
 * * *
 #### 1. ToDo리스트 만들기 (memoList.html, js, css / memo.png)<br>
 
