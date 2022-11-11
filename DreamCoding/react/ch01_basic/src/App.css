@@ -1,4 +1,6 @@
 .profile {
+  position: relative;
+  margin: 10px;
   width: 300px;
   text-align: center;
   background-color: aliceblue;
@@ -7,9 +9,25 @@
   -webkit-box-shadow: 5px 7px 14px 0px rgba(0, 0, 0, 0.4);
   box-shadow: 5px 7px 14px 0px rgba(0, 0, 0, 0.4);
 }
-
+.Avatar {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
 .profileImg {
   width: 200px;
   height: 200px;
   border-radius: 100%;
+}
+.new {
+  position: absolute;
+  /* 가장 근접한 static position이 아닌 부모 내에서 움직임 */
+  left: 70%;
+  top: 10%;
+  background-color: turquoise;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: bolder;
 }
